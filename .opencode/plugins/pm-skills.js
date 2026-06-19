@@ -20,7 +20,9 @@ const logHelper = (client, message, level = "info") => {
   });
 };
 
-export default ({ client }) => {
+export const PmSkillsPlugin = async (input, _options) => {
+  const { client } = input;
+
   logHelper(client, "PM Skills plugin initialized");
 
   const rootDir = path.resolve(__dirname, "../..");
