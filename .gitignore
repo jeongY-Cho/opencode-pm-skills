@@ -2,3 +2,5 @@
 _Internal/
 CLAUDE.local.md
 node_modules
+.opencode/*
+!.opencode/plugins
