@@ -108,23 +108,21 @@ codex plugin add pm-ai-shipping@pm-skills
 
 This is a best-effort, model-driven conversion (some Claude-specific command syntax won't translate), but it's a quick way to get the guided workflows on Codex without leaving the CLI.
 
-### Other AI assistants (skills only)
+### Other AI assistants
 
-The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. Commands (`/slash-commands`) are Claude-specific.
+The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. `/slash-commands` are Claude-specific everywhere except OpenCode, where the bundled plugin below registers them automatically.
 
 | Tool | How to use | What works |
 |------|-----------|------------|
 | **Gemini CLI** | Copy skill folders to `.gemini/skills/` | Skills only |
-| **OpenCode** | Copy skill folders to `.opencode/skills/` | Skills only |
+| **OpenCode** | Bundle includes a native plugin; add `"pm-skills@git+https://github.com/phuryn/pm-skills.git"` to your opencode plugin config and restart opencode  | Skills + commands |
 | **Cursor** | Copy skill folders to `.cursor/skills/` | Skills only |
 | **Kiro** | Copy skill folders to `.kiro/skills/` | Skills only |
 
 ```bash
-# Example: copy all skills for OpenCode (project-level)
-for plugin in pm-*/; do
-  mkdir -p .opencode/skills/
-  cp -r "$plugin/skills/"* .opencode/skills/ 2>/dev/null
-done
+# OpenCode: no copying needed. The repo ships .opencode/plugins/pm-skills.js,
+# which auto-registers every skill and command. Install its one dependency:
+npm install --prefix .opencode
 
 # Example: copy all skills for Gemini CLI (global)
 for plugin in pm-*/; do

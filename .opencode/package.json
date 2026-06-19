@@ -1,6 +1,5 @@
 {
-  "name": "opencode-pm-skills",
-  "module": "index.ts",
+  "name": "pm-skills",
   "type": "module",
   "private": true,
   "dependencies": {
