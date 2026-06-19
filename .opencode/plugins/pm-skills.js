@@ -29,12 +29,17 @@ export const PmSkillsPlugin = async (input, _options) => {
   logHelper(client, `Scanning root directory: ${rootDir}`);
 
   const pluginDirs = fs.readdirSync(rootDir).filter((d) => d.startsWith("pm-"));
-  logHelper(client, `Found ${pluginDirs.length} plugin directories: ${pluginDirs.join(", ") || "none"}`);
+  logHelper(
+    client,
+    `Found ${pluginDirs.length} plugin directories: ${pluginDirs.join(", ") || "none"}`,
+  );
 
   const skillDirs = pluginDirs.map((d) => path.resolve(rootDir, d, "skills"));
   logHelper(client, `Discovered ${skillDirs.length} skill directories`);
 
-  const commandDirs = pluginDirs.map((d) => path.resolve(rootDir, d, "commands"));
+  const commandDirs = pluginDirs.map((d) =>
+    path.resolve(rootDir, d, "commands"),
+  );
   logHelper(client, `Discovered ${commandDirs.length} command directories`);
 
   const commands = [];
@@ -72,10 +77,6 @@ export const PmSkillsPlugin = async (input, _options) => {
   logHelper(client, `Total commands loaded: ${commands.length}`);
 
   return {
-    // Inject skills path into live config so OpenCode discovers superpowers skills
-    // without requiring manual symlinks or config file edits.
-    // This works because Config.get() returns a cached singleton — modifications
-    // here are visible when skills are lazily discovered later.
     config: async (config) => {
       logHelper(client, "Configuring OpenCode with PM Skills...");
 
@@ -89,7 +90,10 @@ export const PmSkillsPlugin = async (input, _options) => {
         }
       }
       if (addedPaths.length > 0) {
-        logHelper(client, `Injected ${addedPaths.length} skill path(s): ${addedPaths.map(p => path.basename(path.dirname(p))).join(", ")}`);
+        logHelper(
+          client,
+          `Injected ${addedPaths.length} skill path(s): ${addedPaths.map((p) => path.basename(path.dirname(p))).join(", ")}`,
+        );
       }
 
       config.command = config.command || {};
@@ -104,7 +108,10 @@ export const PmSkillsPlugin = async (input, _options) => {
           ...cmd.data,
         };
       }
-      logHelper(client, `Registered ${registeredCount} new command(s), total: ${commands.length} (${commandNames.join(", ")})`);
+      logHelper(
+        client,
+        `Registered ${registeredCount} new command(s), total: ${commands.length} (${commandNames.join(", ")})`,
+      );
       logHelper(client, "PM Skills plugin configuration complete");
     },
   };
