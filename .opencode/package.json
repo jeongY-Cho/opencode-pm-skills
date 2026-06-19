@@ -1,0 +1,9 @@
+{
+  "name": "opencode-pm-skills",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
