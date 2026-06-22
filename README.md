@@ -5,7 +5,7 @@
 
 # PM Skills Marketplace: The AI Operating System for Better Product Decisions
 
-> 68 PM skills and 42 chained workflows across 9 plugins. Claude Code, Cowork, and more. From discovery to strategy, execution, launch, growth, and shipping AI-built code.
+> 68 PM skills and 42 chained workflows across 9 plugins. Claude Code, Cowork, and more. From discovery to strategy, execution, launch, growth, and shipping AI-built code. 
 
 ![PM Skills marketplace: skills, commands, and all 9 plugins at a glance](.docs/images/plugins.png)
 
@@ -33,7 +33,7 @@ The result: better product decisions, not just faster documents.
 
 ![Example prompts: a skill and two commands (/write-prd, /ship-check) in action](.docs/images/examples.png)
 
-**Skills** are the building blocks of the marketplace. Each skill gives Claude domain knowledge, analytical frameworks, or a guided workflow for a specific PM task. Some skills also work as reusable foundations that multiple commands share.
+**Skills** are the building blocks of the marketplace. Each skill gives Claude domain knowledge, analytical frameworks, or a guided workflow for a specific PM task. Some skills also work as reusable foundations that multiple commands share. 
 
 Skills are loaded automatically when relevant to the conversation — no explicit invocation needed. If needed (e.g., prioritizing skills over general knowledge), you can **force loading skills** with `/plugin-name:skill-name` or `/skill-name` (Claude will add the prefix).
 
@@ -67,8 +67,8 @@ claude plugin marketplace add phuryn/pm-skills
 # Step 2: Install individual plugins
 claude plugin install pm-toolkit@pm-skills
 claude plugin install pm-product-strategy@pm-skills
-claude plugin install pm-product-discovery@pm-skills
-claude plugin install pm-market-research@pm-skills
+claude plugin install pm-product-discovery@pm-skills 
+claude plugin install pm-market-research@pm-skills 
 claude plugin install pm-data-analytics@pm-skills
 claude plugin install pm-marketing-growth@pm-skills
 claude plugin install pm-go-to-market@pm-skills
@@ -100,7 +100,7 @@ codex plugin add pm-ai-shipping@pm-skills
 
 **What's different from Claude Code:** the `/slash` commands (`/discover`, `/write-prd`, …) install but don't run as Codex slash commands — Codex plugins don't expose commands. To run a workflow, just describe the steps in plain language, for example:
 
-> Run product discovery on _[your idea]_: brainstorm options, map assumptions, prioritize the risky ones, then design experiments — pause between each step.
+> Run product discovery on *[your idea]*: brainstorm options, map assumptions, prioritize the risky ones, then design experiments — pause between each step.
 
 **Optional — let Codex turn the workflows into skills.** Because the command files ship inside each installed plugin, you can ask Codex to convert the ones you use most:
 
@@ -124,13 +124,13 @@ OpenCode ships with a native plugin bundled in this repo (`.opencode/plugins/pm-
 
 ### Other AI assistants
 
-The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. `/slash-commands` are Claude-specific and don't run as native commands in these tools.
+The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. `/slash-commands` are Claude-specific everywhere except OpenCode, where the bundled plugin below registers them automatically.
 
-| Tool           | How to use                              | What works  |
-| -------------- | --------------------------------------- | ----------- |
+| Tool | How to use | What works |
+|------|-----------|------------|
 | **Gemini CLI** | Copy skill folders to `.gemini/skills/` | Skills only |
-| **Cursor**     | Copy skill folders to `.cursor/skills/` | Skills only |
-| **Kiro**       | Copy skill folders to `.kiro/skills/`   | Skills only |
+| **Cursor** | Copy skill folders to `.cursor/skills/` | Skills only |
+| **Kiro** | Copy skill folders to `.kiro/skills/` | Skills only |
 
 ```bash
 # Example: copy all skills for Gemini CLI (global)
@@ -173,13 +173,11 @@ done
 **Examples:**
 
 Skills:
-
 - `What are the riskiest assumptions for our AI writing assistant idea?`
 - `Help me build an Opportunity Solution Tree for improving user activation`
 - `Prioritize these 12 feature requests from our enterprise customers [attach CSV]`
 
 Commands:
-
 - `/discover AI-powered meeting summarizer for remote teams`
 - `/brainstorm experiments existing — We need to reduce churn in our onboarding flow`
 - `/interview prep — We're interviewing enterprise buyers about their procurement workflow`
@@ -217,13 +215,11 @@ Product strategy, vision, business models, pricing, and macro environment analys
 **Examples:**
 
 Skills:
-
 - `Compare Lean Canvas vs Business Model Canvas vs Startup Canvas for my marketplace startup`
 - `Design a value proposition for our AI writing assistant targeting non-native English speakers`
 - `Run a Porter's Five Forces analysis for the project management SaaS market`
 
 Commands:
-
 - `/strategy B2B project management tool for agencies`
 - `/business-model startup — AI writing tool for non-native English speakers`
 - `/value-proposition SaaS onboarding tool for enterprise customers`
@@ -271,13 +267,11 @@ Day-to-day product management: PRDs, OKRs, roadmaps, sprints, retrospectives, re
 **Examples:**
 
 Skills:
-
 - `Which prioritization framework should I use for a 50-item backlog?`
 - `Map our stakeholders for the platform migration project`
 - `What's the difference between Opportunity Score, ICE, and RICE?`
 
 Commands:
-
 - `/write-prd Smart notification system that reduces alert fatigue`
 - `/sprint retro — Here are the notes from our last sprint`
 - `/write-stories job — Break down the "team dashboard" feature into job stories`
@@ -308,13 +302,11 @@ User research and competitive analysis: personas, segmentation, journey maps, ma
 **Examples:**
 
 Skills:
-
 - `Estimate TAM/SAM/SOM for an AI code review tool in the US market`
 - `Create a customer journey map for our e-commerce checkout flow`
 - `Segment these survey respondents by behavior and needs [attach CSV]`
 
 Commands:
-
 - `/research-users We have interview data from 12 users of our fitness app`
 - `/competitive-analysis Figma competitors in the design tool space`
 - `/analyze-feedback Here's 200 NPS responses from Q4 [attach file]`
@@ -341,12 +333,10 @@ Data analytics for PMs: SQL query generation, cohort analysis, and A/B test anal
 **Examples:**
 
 Skills:
-
 - `How large a sample do I need for 95% confidence with a 2% MDE?`
 - `What retention metrics should I track for a subscription app?`
 
 Commands:
-
 - `/write-query Show me monthly active users by country for Q4 2025 (BigQuery)`
 - `/analyze-test Here are the results from our checkout flow A/B test [attach CSV]`
 - `/analyze-cohorts Weekly retention for users who signed up in January vs February`
@@ -376,13 +366,11 @@ Go-to-market strategy: beachhead segments, ideal customer profiles, messaging, g
 **Examples:**
 
 Skills:
-
 - `What's the best beachhead segment for a developer productivity tool?`
 - `Design a growth loop for a B2B SaaS with a freemium tier`
 - `Define our ICP for an AI-powered HR screening platform`
 
 Commands:
-
 - `/plan-launch AI code review tool targeting mid-size engineering teams`
 - `/battlecard Our CRM vs Salesforce for the SMB market`
 - `/growth-strategy Two-sided marketplace for connecting freelancers with startups`
@@ -410,13 +398,11 @@ Product marketing and growth: marketing ideas, positioning, value proposition st
 **Examples:**
 
 Skills:
-
 - `Brainstorm 5 positioning angles that differentiate us from Notion`
 - `What's a good North Star Metric for a two-sided marketplace?`
 - `Generate value prop statements for our sales team's pitch deck`
 
 Commands:
-
 - `/market-product B2B analytics dashboard for e-commerce managers`
 - `/north-star Two-sided marketplace connecting freelancers with clients`
 
@@ -445,12 +431,10 @@ PM utilities beyond core product work: resume review, legal documents, and proof
 **Examples:**
 
 Skills:
-
 - `Review my PM resume against best practices [attach PDF]`
 - `Check this product announcement for grammar and clarity`
 
 Commands:
-
 - `/review-resume [attach your PM resume]`
 - `/tailor-resume [attach resume + paste job description]`
 - `/proofread Here's the draft of our Q1 investor update`
@@ -460,7 +444,7 @@ Commands:
 <details>
 <summary><strong>9. pm-ai-shipping</strong> — AI Shipping Kit: document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (2 skills, 5 commands)</summary>
 
-For PMs and founders accountable for AI-built code. AI agents write code fast but leave no record of _intent_ — what the system should do, who may do what, where the secrets live, which rules are actually verified. This kit restores reviewability: it documents the system, then audits the gap between what the docs say and what the code actually does — the class of bug generic scanners miss.
+For PMs and founders accountable for AI-built code. AI agents write code fast but leave no record of *intent* — what the system should do, who may do what, where the secrets live, which rules are actually verified. This kit restores reviewability: it documents the system, then audits the gap between what the docs say and what the code actually does — the class of bug generic scanners miss.
 
 **Skills (2):**
 
@@ -478,12 +462,10 @@ For PMs and founders accountable for AI-built code. AI agents write code fast bu
 **Examples:**
 
 Skills:
-
 - `What documentation does my Supabase app need before someone can review it?`
 - `Where does what this code does diverge from what the docs say it should do?`
 
 Commands:
-
 - `/ship-check the payments service`
 - `/document-app — Reverse-engineer the system docs for this repo`
 - `/derive-tests — Which documented rules have no test yet?`
@@ -499,18 +481,18 @@ This marketplace evolves with product practice and AI capabilities.
 
 Selected skills based on the work of:
 
-- Teresa Torres — [_Continuous Discovery Habits_](https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309/)
-- Marty Cagan — [_INSPIRED_](https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507/) and [_TRANSFORMED_](https://www.amazon.com/dp/1119697336/)
-- Alberto Savoia — [_The Right It_](https://www.amazon.com/Right-Many-Ideas-Yours-Succeed/dp/0062884654)
-- Dan Olsen — [_The Lean Product Playbook_](https://www.amazon.com/dp/1118960874/)
-- Roger L. Martin — [_Playing to Win_](https://www.amazon.com/Playing-Win-Expanded-Bonus-Articles/dp/B0F25SDYWV/)
-- Ash Maurya — [_Running Lean_](https://www.amazon.com/dp/B004J4XGN6/)
-- Strategyzer — [_Business Model Generation_](https://www.amazon.com/dp/0470876417/) and [_Value Proposition Design_](https://www.amazon.com/dp/1118968050/)
-- Christina Wodtke — [_Radical Focus_](https://www.amazon.com/Radical-Focus-Achieving-Important-Objectives/dp/0996006052)
-- Anthony W. Ulwick — [_Jobs to Be Done_](https://jobs-to-be-done-book.com/)
-- Alistair Croll & Benjamin Yoskovitz — [_Lean Analytics_](https://www.amazon.com/Lean-Analytics-Better-Startup-Faster/dp/1449335675/)
-- Sean Ellis — [_Hacking Growth_](https://www.amazon.com/Hacking-Growth-Fastest-Growing-Companies-Breakout/dp/045149721X/)
-- Maja Voje — [_Go-To-Market Strategist_](https://gtmstrategist.com/)
+- Teresa Torres — [*Continuous Discovery Habits*](https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309/)
+- Marty Cagan — [*INSPIRED*](https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507/) and [*TRANSFORMED*](https://www.amazon.com/dp/1119697336/)
+- Alberto Savoia — [*The Right It*](https://www.amazon.com/Right-Many-Ideas-Yours-Succeed/dp/0062884654)
+- Dan Olsen — [*The Lean Product Playbook*](https://www.amazon.com/dp/1118960874/)
+- Roger L. Martin — [*Playing to Win*](https://www.amazon.com/Playing-Win-Expanded-Bonus-Articles/dp/B0F25SDYWV/)
+- Ash Maurya — [*Running Lean*](https://www.amazon.com/dp/B004J4XGN6/)
+- Strategyzer — [*Business Model Generation*](https://www.amazon.com/dp/0470876417/) and [*Value Proposition Design*](https://www.amazon.com/dp/1118968050/)
+- Christina Wodtke — [*Radical Focus*](https://www.amazon.com/Radical-Focus-Achieving-Important-Objectives/dp/0996006052)
+- Anthony W. Ulwick — [*Jobs to Be Done*](https://jobs-to-be-done-book.com/)
+- Alistair Croll & Benjamin Yoskovitz — [*Lean Analytics*](https://www.amazon.com/Lean-Analytics-Better-Startup-Faster/dp/1449335675/)
+- Sean Ellis — [*Hacking Growth*](https://www.amazon.com/Hacking-Growth-Fastest-Growing-Companies-Breakout/dp/045149721X/)
+- Maja Voje — [*Go-To-Market Strategist*](https://gtmstrategist.com/)
 
 Curated by Paweł Huryn from [The Product Compass Newsletter](https://www.productcompass.pm).
 
