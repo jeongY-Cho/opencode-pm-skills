@@ -2,6 +2,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/CONTRIBUTING.md)
 [![Companion: pm-skills](https://img.shields.io/badge/companion-pm--brain-blue)](https://github.com/phuryn/pm-brain)
+[![Companion: burnstop](https://img.shields.io/badge/companion-burnstop-blue)](https://github.com/phuryn/burnstop)
+[![Companion: claude-usage](https://img.shields.io/badge/companion-claude--usage-blue)](https://github.com/phuryn/claude-usage)
 
 # PM Skills Marketplace: The AI Operating System for Better Product Decisions
 
@@ -124,13 +126,27 @@ OpenCode ships with a native plugin bundled in this repo (`.opencode/plugins/pm-
 
 ### Other AI assistants
 
+The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. `/slash-commands` are Claude-specific everywhere except OpenCode, where the bundled plugin below registers them automatically.
+
+```jsonc
+# Add the plugin to your opencode plugin config
+{
+  "plugin": ["pm-skills@git+https://github.com/phuryn/pm-skills.git"]
+}
+# Then restart opencode.
+```
+
+**What you get:** every skill (the PM frameworks) **and** every `/slash` command (`/discover`, `/write-prd`, …), both registered automatically by the bundled plugin.
+
+### Other AI assistants
+
 The `skills/*/SKILL.md` files follow the universal skill format and work with any tool that reads it. `/slash-commands` are Claude-specific and don't run as native commands in these tools.
 
 | Tool           | How to use                              | What works  |
 | -------------- | --------------------------------------- | ----------- |
 | **Gemini CLI** | Copy skill folders to `.gemini/skills/` | Skills only |
-| **Cursor**     | Copy skill folders to `.cursor/skills/` | Skills only |
-| **Kiro**       | Copy skill folders to `.kiro/skills/`   | Skills only |
+| **Cursor** | Copy skill folders to `.cursor/skills/` | Skills only |
+| **Kiro** | Copy skill folders to `.kiro/skills/` | Skills only |
 
 ```bash
 # Example: copy all skills for Gemini CLI (global)
